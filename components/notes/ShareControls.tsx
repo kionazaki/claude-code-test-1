@@ -21,9 +21,13 @@ export function ShareControls({
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const publicUrl = pid
-    ? `${window.location.origin}/share/${pid}`
-    : null;
+  // window is not available during SSR — use env var as fallback
+  const origin =
+    typeof window !== "undefined"
+      ? window.location.origin
+      : (process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000");
+
+  const publicUrl = pid ? `${origin}/share/${pid}` : null;
 
   async function handleEnable() {
     setLoading(true);

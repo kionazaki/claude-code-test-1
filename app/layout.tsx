@@ -16,7 +16,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${geist.className} antialiased`}>{children}</body>
+      {/* suppressHydrationWarning prevents false errors from browser extensions
+          (password managers etc.) that inject attributes into the DOM */}
+      <body className={`${geist.className} antialiased`} suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }

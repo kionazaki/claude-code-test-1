@@ -42,6 +42,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         ref={ref}
+        suppressHydrationWarning
         disabled={disabled || loading}
         className={[
           "inline-flex items-center justify-center gap-2 rounded-md font-medium",

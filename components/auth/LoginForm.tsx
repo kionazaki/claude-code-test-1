@@ -36,7 +36,7 @@ export function LoginForm({ callbackUrl = "/notes" }: { callbackUrl?: string }) 
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5" suppressHydrationWarning>
       <div className="text-center">
         <h1 className="text-2xl font-bold text-gray-900">Welcome back</h1>
         <p className="mt-1 text-sm text-gray-500">Sign in to your account</p>
