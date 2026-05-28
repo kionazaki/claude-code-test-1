@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       {/* suppressHydrationWarning prevents false errors from browser extensions
           (password managers etc.) that inject attributes into the DOM */}
-      <body className={`${geist.className} antialiased`} suppressHydrationWarning>
+      <body className={`${geist.className} antialiased bg-green-50`} suppressHydrationWarning>
         {children}
       </body>
     </html>
