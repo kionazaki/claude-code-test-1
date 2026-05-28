@@ -1,6 +1,7 @@
 "use client";
 
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Button } from "./Button";
 
 interface ModalProps {
@@ -28,6 +29,10 @@ export function Modal({
   onCancel,
   children,
 }: ModalProps) {
+  // Track whether we're mounted on the client so createPortal is safe to call
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   // Close on Escape
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -37,9 +42,11 @@ export function Modal({
     return () => document.removeEventListener("keydown", handler);
   }, [open, onCancel]);
 
-  if (!open) return null;
+  if (!open || !mounted) return null;
 
-  return (
+  // Render directly into <body> so sticky/fixed ancestors with backdrop-filter
+  // don't create a new stacking context that breaks fixed positioning.
+  return createPortal(
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
       <div
@@ -67,6 +74,7 @@ export function Modal({
           </Button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

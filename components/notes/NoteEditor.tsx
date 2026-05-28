@@ -21,6 +21,7 @@ export function NoteEditor({
   className = "",
 }: NoteEditorProps) {
   const editor = useEditor({
+    immediatelyRender: true,
     extensions: [
       StarterKit.configure({
         heading: false,  // we use the separate Heading extension

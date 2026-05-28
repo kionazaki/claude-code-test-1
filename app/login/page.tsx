@@ -7,7 +7,10 @@ interface Props {
 
 export default async function LoginPage({ searchParams }: Props) {
   const params = await searchParams;
-  const callbackUrl = params.callbackUrl ?? "/notes";
+  // Validate callbackUrl to prevent open redirect — only allow relative paths
+  const raw = params.callbackUrl ?? "";
+  const callbackUrl =
+    raw.startsWith("/") && !raw.startsWith("//") ? raw : "/notes";
 
   return (
     <main className="min-h-screen flex items-center justify-center bg-gray-50 px-4">

@@ -24,6 +24,27 @@ const nextConfig: NextConfig = {
           },
           // Basic XSS filter (legacy browsers)
           { key: "X-XSS-Protection", value: "1; mode=block" },
+          // Content Security Policy — tighten per environment as needed
+          {
+            key: "Content-Security-Policy",
+            value: [
+              "default-src 'self'",
+              // Next.js needs inline scripts for hydration
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+              "style-src 'self' 'unsafe-inline'",
+              "img-src 'self' data: blob:",
+              "font-src 'self'",
+              "connect-src 'self'",
+              "frame-ancestors 'none'",
+              "base-uri 'self'",
+              "form-action 'self'",
+            ].join("; "),
+          },
+          // Enforce HTTPS and remember for 1 year (enable in production)
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000; includeSubDomains",
+          },
         ],
       },
     ];

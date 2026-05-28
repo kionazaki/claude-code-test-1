@@ -1,4 +1,5 @@
 export const MAX_TITLE_LENGTH = 200;
+export const MAX_CONTENT_JSON_BYTES = 512 * 1024; // 512 KB
 export const DEFAULT_TITLE = "Untitled Note";
 
 export function validateTitle(raw: unknown): string {
@@ -23,8 +24,13 @@ export function validateContentJson(raw: unknown): object {
   if (obj.type !== "doc") {
     throw new Error('contentJson root type must be "doc"');
   }
-  // Ensure it is serializable
-  JSON.stringify(obj);
+  // Ensure it is serializable and within size limit
+  const serialized = JSON.stringify(obj);
+  if (serialized.length > MAX_CONTENT_JSON_BYTES) {
+    throw new Error(
+      `contentJson exceeds maximum allowed size of ${MAX_CONTENT_JSON_BYTES / 1024} KB`
+    );
+  }
   return obj;
 }
 
