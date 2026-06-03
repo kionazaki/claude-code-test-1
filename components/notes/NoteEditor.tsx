@@ -22,6 +22,7 @@ export function NoteEditor({
 }: NoteEditorProps) {
   const editor = useEditor({
     immediatelyRender: true,
+    shouldRerenderOnTransaction: true,
     extensions: [
       StarterKit.configure({
         heading: false,  // we use the separate Heading extension
@@ -51,7 +52,7 @@ export function NoteEditor({
   return (
     <div
       className={[
-        "border border-gray-200 rounded-lg overflow-hidden",
+        "ring-1 ring-zinc-200 rounded-xl overflow-hidden",
         className,
       ].join(" ")}
     >

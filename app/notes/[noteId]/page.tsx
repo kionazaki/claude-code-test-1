@@ -23,21 +23,22 @@ export default async function NoteViewPage({ params }: Props) {
   if (!note) notFound();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       {/* Header */}
-      <header className="sticky top-0 z-10 border-b border-gray-200 bg-white/80 backdrop-blur">
+      <header className="sticky top-0 z-10 border-b border-zinc-200 bg-white/90 backdrop-blur">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-3">
           <Link
             href="/notes"
-            className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
+            className="flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-800 transition-colors"
           >
-            ← Notes
+            <span>←</span>
+            <span>Notes</span>
           </Link>
           <div className="flex items-center gap-2">
             <DeleteNoteButton noteId={note.id} />
             <Link
               href={`/notes/${note.id}/edit`}
-              className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-indigo-700 transition-colors"
+              className="rounded-xl bg-violet-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-violet-700 transition-colors"
             >
               Edit
             </Link>
@@ -48,13 +49,13 @@ export default async function NoteViewPage({ params }: Props) {
       {/* Content */}
       <main className="mx-auto max-w-3xl px-4 py-8 space-y-6">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">{note.title}</h1>
-          <p className="mt-2 text-sm text-gray-400">
+          <h1 className="text-3xl font-bold text-zinc-900">{note.title}</h1>
+          <p className="mt-2 text-sm text-zinc-400">
             Updated {formatDate(note.updatedAt)}
           </p>
         </div>
 
-        <NoteEditor content={note.contentJson} readOnly className="shadow-sm" />
+        <NoteEditor content={note.contentJson} readOnly className="shadow-xs" />
 
         <ShareControls
           noteId={note.id}

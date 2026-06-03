@@ -4,6 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 @AGENTS.md
 
+## Agents
+
+When the user asks to be greeted (says hello, hi, "поприветствуй меня", etc.), use the `greeter` agent from `.claude/agents/greeter.md`. Relay the agent's output verbatim to the user — do not add your own greeting or any extra text.
+
 ## Commands
 
 ```bash

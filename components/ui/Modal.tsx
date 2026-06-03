@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "./Button";
 
@@ -31,6 +31,7 @@ export function Modal({
 }: ModalProps) {
   // Track whether we're mounted on the client so createPortal is safe to call
   const [mounted, setMounted] = useState(false);
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
 
   // Close on Escape
@@ -50,15 +51,15 @@ export function Modal({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
         onClick={onCancel}
       />
 
       {/* Dialog */}
-      <div className="relative z-10 w-full max-w-md rounded-xl bg-white p-6 shadow-2xl">
-        <h2 className="text-lg font-semibold text-gray-900">{title}</h2>
+      <div className="relative z-10 w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl ring-1 ring-zinc-950/10">
+        <h2 className="text-lg font-semibold text-zinc-900">{title}</h2>
         {description && (
-          <p className="mt-2 text-sm text-gray-600">{description}</p>
+          <p className="mt-2 text-sm text-zinc-600">{description}</p>
         )}
         {children && <div className="mt-4">{children}</div>}
         <div className="mt-6 flex justify-end gap-3">

@@ -82,31 +82,32 @@ export function NoteEditorPage({ note }: NoteEditorPageProps) {
     idle: "",
     saving: "Saving…",
     saved: "Saved ✓",
-    error: "Error saving note",
+    error: "Error saving",
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       {/* Header */}
-      <header className="sticky top-0 z-10 border-b border-gray-200 bg-white/80 backdrop-blur">
+      <header className="sticky top-0 z-10 border-b border-zinc-200 bg-white/90 backdrop-blur">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-3">
           <Link
             href="/notes"
-            className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
+            className="flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-800 transition-colors"
           >
-            ← Notes
+            <span>←</span>
+            <span>Notes</span>
           </Link>
 
           <div className="flex items-center gap-3">
             {saveStatus !== "idle" && (
               <span
                 className={[
-                  "text-xs font-medium",
+                  "text-xs font-medium px-2.5 py-1 rounded-full",
                   saveStatus === "error"
-                    ? "text-red-500"
+                    ? "bg-rose-100 text-rose-600"
                     : saveStatus === "saved"
-                    ? "text-green-600"
-                    : "text-gray-400",
+                    ? "bg-emerald-100 text-emerald-700"
+                    : "bg-zinc-100 text-zinc-500",
                 ].join(" ")}
               >
                 {statusLabel[saveStatus]}
@@ -132,23 +133,20 @@ export function NoteEditorPage({ note }: NoteEditorPageProps) {
 
       {/* Content */}
       <main className="mx-auto max-w-3xl px-4 py-8 space-y-6">
-        {/* Title */}
         <input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Untitled Note"
-          className="w-full text-3xl font-bold text-gray-900 bg-transparent border-none outline-none placeholder:text-gray-300"
+          className="w-full text-3xl font-bold text-zinc-900 bg-transparent border-none outline-none placeholder:text-zinc-300"
         />
 
-        {/* Editor */}
         <NoteEditor
           content={content}
           onChange={handleContentChange}
-          className="shadow-sm"
+          className="shadow-xs"
         />
 
-        {/* Share controls — only for existing notes */}
         {!isNew && (
           <ShareControls
             noteId={note.id}
@@ -162,7 +160,6 @@ export function NoteEditorPage({ note }: NoteEditorPageProps) {
         )}
       </main>
 
-      {/* Delete confirmation modal */}
       <Modal
         open={deleteOpen}
         title="Delete note"

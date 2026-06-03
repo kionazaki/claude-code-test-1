@@ -15,12 +15,17 @@ export default async function PublicNotePage({ params }: Props) {
   if (!note) notFound();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       {/* Header */}
-      <header className="border-b border-gray-200 bg-white">
+      <header className="border-b border-zinc-200 bg-white">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-3">
-          <span className="text-sm font-medium text-gray-500">📝 Notes</span>
-          <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-green-100 text-green-700">
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded-md bg-violet-600 flex items-center justify-center">
+              <span className="text-white text-xs font-bold leading-none">✦</span>
+            </div>
+            <span className="text-sm font-semibold text-zinc-900">Notes</span>
+          </div>
+          <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-violet-100 text-violet-700">
             Public note
           </span>
         </div>
@@ -28,8 +33,8 @@ export default async function PublicNotePage({ params }: Props) {
 
       {/* Content */}
       <main className="mx-auto max-w-3xl px-4 py-8 space-y-6">
-        <h1 className="text-3xl font-bold text-gray-900">{note.title}</h1>
-        <NoteEditor content={note.contentJson} readOnly className="shadow-sm" />
+        <h1 className="text-3xl font-bold text-zinc-900">{note.title}</h1>
+        <NoteEditor content={note.contentJson} readOnly className="shadow-xs" />
       </main>
     </div>
   );
