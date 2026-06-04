@@ -38,12 +38,12 @@ export function LoginForm({ callbackUrl = "/notes" }: { callbackUrl?: string }) 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5" suppressHydrationWarning>
       <div className="text-center">
-        <h1 className="text-2xl font-bold text-zinc-900">Welcome back</h1>
-        <p className="mt-1 text-sm text-zinc-500">Sign in to your account</p>
+        <h1 className="text-2xl font-bold text-zinc-100">Welcome back</h1>
+        <p className="mt-1 text-sm text-zinc-400">Sign in to your account</p>
       </div>
 
       {error && (
-        <div className="rounded-xl bg-rose-50 border border-rose-200 px-4 py-3 text-sm text-rose-700">
+        <div className="rounded-xl bg-rose-950 border border-rose-800 px-4 py-3 text-sm text-rose-400">
           {error}
         </div>
       )}
@@ -74,9 +74,9 @@ export function LoginForm({ callbackUrl = "/notes" }: { callbackUrl?: string }) 
         Sign in
       </Button>
 
-      <p className="text-center text-sm text-zinc-500">
+      <p className="text-center text-sm text-zinc-400">
         Don&apos;t have an account?{" "}
-        <Link href="/register" className="text-violet-600 hover:underline font-medium">
+        <Link href="/register" className="text-[#c8c800] hover:underline font-medium">
           Create one
         </Link>
       </p>

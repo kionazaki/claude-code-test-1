@@ -27,21 +27,21 @@ export function NotesPageClient({ notes, userName }: NotesPageClientProps) {
 
   return (
     <div className="min-h-screen">
-      <header className="sticky top-0 z-10 border-b border-zinc-200 bg-white/90 backdrop-blur">
+      <header className="sticky top-0 z-10 border-b border-zinc-800 bg-[#0d0d0d]/90 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-violet-600 flex items-center justify-center">
-              <span className="text-white text-xs font-bold leading-none">✦</span>
+            <div className="w-7 h-7 rounded-lg bg-[#9a9a00] flex items-center justify-center">
+              <span className="text-black text-xs font-bold leading-none">✦</span>
             </div>
-            <span className="font-semibold text-zinc-900">Notes</span>
+            <span className="font-semibold text-zinc-100">Notes</span>
           </div>
           <div className="flex items-center gap-3">
-            <span className="hidden sm:block text-sm text-zinc-400 bg-zinc-100 px-3 py-1 rounded-full">
+            <span className="hidden sm:block text-sm text-zinc-400 bg-zinc-800 px-3 py-1 rounded-full">
               {userName}
             </span>
             <button
               onClick={openNew}
-              className="rounded-xl bg-violet-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-violet-700 transition-colors"
+              className="rounded-xl bg-[#9a9a00] px-3 py-1.5 text-sm font-medium text-black hover:bg-[#b5b500] transition-colors"
             >
               + New Note
             </button>

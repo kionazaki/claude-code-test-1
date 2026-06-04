@@ -56,10 +56,10 @@ export function Modal({
       />
 
       {/* Dialog */}
-      <div className="relative z-10 w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl ring-1 ring-zinc-950/10">
-        <h2 className="text-lg font-semibold text-zinc-900">{title}</h2>
+      <div className="relative z-10 w-full max-w-md rounded-2xl bg-zinc-900 p-6 shadow-2xl ring-1 ring-white/10">
+        <h2 className="text-lg font-semibold text-zinc-100">{title}</h2>
         {description && (
-          <p className="mt-2 text-sm text-zinc-600">{description}</p>
+          <p className="mt-2 text-sm text-zinc-400">{description}</p>
         )}
         {children && <div className="mt-4">{children}</div>}
         <div className="mt-6 flex justify-end gap-3">

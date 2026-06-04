@@ -18,8 +18,8 @@ function ToolbarButton({ active, onClick, title, children }: ToolbarButtonProps)
       className={[
         "px-2 py-1 rounded-lg text-sm font-medium transition-colors",
         active
-          ? "bg-violet-100 text-violet-700"
-          : "text-zinc-600 hover:bg-zinc-100",
+          ? "bg-[#2a2a00] text-[#c8c800]"
+          : "text-zinc-400 hover:bg-zinc-800",
       ].join(" ")}
     >
       {children}
@@ -28,7 +28,7 @@ function ToolbarButton({ active, onClick, title, children }: ToolbarButtonProps)
 }
 
 function Divider() {
-  return <span className="w-px h-5 bg-zinc-200 mx-1" />;
+  return <span className="w-px h-5 bg-zinc-700 mx-1" />;
 }
 
 interface NoteToolbarProps {
@@ -39,7 +39,7 @@ export function NoteToolbar({ editor }: NoteToolbarProps) {
   if (!editor) return null;
 
   return (
-    <div className="flex flex-wrap items-center gap-0.5 px-3 py-2 border-b border-zinc-200 bg-zinc-50 rounded-t-xl">
+    <div className="flex flex-wrap items-center gap-0.5 px-3 py-2 border-b border-zinc-800 bg-zinc-900 rounded-t-xl">
       <ToolbarButton
         title="Bold"
         active={editor.isActive("bold")}

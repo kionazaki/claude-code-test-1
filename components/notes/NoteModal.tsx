@@ -148,23 +148,23 @@ export function NoteModal({ noteId, open, onClose }: NoteModalProps) {
       >
         <div
           className={[
-            "relative flex flex-col w-full max-w-3xl max-h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden",
+            "relative flex flex-col w-full max-w-3xl max-h-[90vh] bg-zinc-900 rounded-2xl shadow-2xl overflow-hidden ring-1 ring-white/10",
             "transition-all duration-[220ms] ease-out",
             entered ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-3",
           ].join(" ")}
           onMouseDown={(e) => e.stopPropagation()}
         >
-          <div className="flex items-center justify-between px-6 py-3 border-b border-zinc-200 shrink-0">
+          <div className="flex items-center justify-between px-6 py-3 border-b border-zinc-800 shrink-0">
             <div>
               {saveStatus !== "idle" && (
                 <span
                   className={[
                     "text-xs font-medium px-2.5 py-1 rounded-full",
                     saveStatus === "error"
-                      ? "bg-rose-100 text-rose-600"
+                      ? "bg-rose-950 text-rose-400"
                       : saveStatus === "saved"
-                      ? "bg-emerald-100 text-emerald-700"
-                      : "bg-zinc-100 text-zinc-500",
+                      ? "bg-[#1a2a1a] text-emerald-400"
+                      : "bg-zinc-800 text-zinc-400",
                   ].join(" ")}
                 >
                   {statusLabel[saveStatus]}
@@ -187,7 +187,7 @@ export function NoteModal({ noteId, open, onClose }: NoteModalProps) {
               </Button>
               <button
                 onClick={onClose}
-                className="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-700 hover:bg-zinc-100 transition-colors"
+                className="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 transition-colors"
                 title="Close"
               >
                 ✕
@@ -197,7 +197,7 @@ export function NoteModal({ noteId, open, onClose }: NoteModalProps) {
 
           <div className="flex-1 overflow-y-auto px-6 py-6 space-y-4">
             {loading ? (
-              <div className="flex items-center justify-center py-20 text-sm text-zinc-400">
+              <div className="flex items-center justify-center py-20 text-sm text-zinc-500">
                 Loading…
               </div>
             ) : (
@@ -210,7 +210,7 @@ export function NoteModal({ noteId, open, onClose }: NoteModalProps) {
                     setSaveStatus("idle");
                   }}
                   placeholder="Untitled Note"
-                  className="w-full text-3xl font-bold text-zinc-900 bg-transparent border-none outline-none placeholder:text-zinc-300"
+                  className="w-full text-3xl font-bold text-zinc-100 bg-transparent border-none outline-none placeholder:text-zinc-700"
                 />
                 <NoteEditor
                   content={content}
