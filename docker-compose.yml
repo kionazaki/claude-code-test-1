@@ -1,0 +1,18 @@
+services:
+  claude:
+    build: .
+    image: claude-code:node22
+    container_name: claude-code
+    stdin_open: true
+    tty: true
+    user: "node"
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+      - claude_home:/home/node
+    environment:
+      - TERM=xterm-256color
+      - HOME=/home/node
+
+volumes:
+  claude_home:
