@@ -14,13 +14,6 @@ RUN apt-get update && apt-get install -y \
 # so the container must ship with it rather than installing it at runtime.
 RUN npm install -g @anthropic-ai/claude-code bun
 
-# System libraries required by Chromium for Playwright-based E2E tests.
-# Installed as root at build time (the running container has no root), so the
-# browser can launch under the unprivileged `node` user. The browser binary
-# itself is installed per-project via `npx playwright install chromium`.
-RUN npx -y playwright@1.61.0 install-deps chromium \
-    && rm -rf /var/lib/apt/lists/*
-
 # Create working directory
 WORKDIR /workspace
 
