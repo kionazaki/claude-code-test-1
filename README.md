@@ -61,6 +61,23 @@ bun run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## Running Claude Code in Docker
+
+Run Claude Code in an isolated container with the project mounted:
+
+```bash
+docker compose run --rm claude
+```
+
+This builds the image (first run only), mounts the project into `/workspace`, and
+starts an interactive Claude Code session. The `--rm` flag removes the container on exit.
+
+Authentication and onboarding state persist across restarts via the `claude_home`
+named volume, which mounts the entire `/root` home directory — covering both
+`~/.claude/` and `~/.claude.json`. You authenticate once; subsequent runs skip the login flow.
+
+See [`Dockerfile`](Dockerfile) and [`docker-compose.yml`](docker-compose.yml) for details.
+
 ## Scripts
 
 | Command | Description |
