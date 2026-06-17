@@ -88,11 +88,11 @@ export function NoteEditorPage({ note }: NoteEditorPageProps) {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <header className="sticky top-0 z-10 border-b border-zinc-800 bg-[#0d0d0d]/90 backdrop-blur">
+      <header className="sticky top-0 z-10 border-b border-line bg-cream/90 backdrop-blur">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-3">
           <Link
             href="/notes"
-            className="flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-200 transition-colors"
+            className="flex items-center gap-1.5 text-sm text-ink-faint hover:text-ink transition-colors"
           >
             <span>←</span>
             <span>Notes</span>
@@ -104,10 +104,10 @@ export function NoteEditorPage({ note }: NoteEditorPageProps) {
                 className={[
                   "text-xs font-medium px-2.5 py-1 rounded-full",
                   saveStatus === "error"
-                    ? "bg-rose-950 text-rose-400"
+                    ? "bg-terracotta-soft text-terracotta-deep"
                     : saveStatus === "saved"
-                    ? "bg-[#1a2a1a] text-emerald-400"
-                    : "bg-zinc-800 text-zinc-400",
+                    ? "bg-sage-soft text-sage-ink"
+                    : "bg-raised text-ink-soft",
                 ].join(" ")}
               >
                 {statusLabel[saveStatus]}
@@ -138,7 +138,7 @@ export function NoteEditorPage({ note }: NoteEditorPageProps) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Untitled Note"
-          className="w-full text-3xl font-bold text-zinc-100 bg-transparent border-none outline-none placeholder:text-zinc-700"
+          className="w-full text-3xl font-bold text-ink bg-transparent border-none outline-none placeholder:text-ink-faint"
         />
 
         <NoteEditor

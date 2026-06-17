@@ -67,11 +67,11 @@ export function ShareControls({
   }
 
   return (
-    <div className="rounded-2xl ring-1 ring-zinc-700 bg-zinc-900 p-4 space-y-3">
+    <div className="rounded-2xl ring-1 ring-line bg-surface p-4 space-y-3">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm font-medium text-zinc-200">Public sharing</p>
-          <p className="text-xs text-zinc-500">
+          <p className="text-sm font-medium text-ink">Public sharing</p>
+          <p className="text-xs text-ink-faint">
             {sharing
               ? "Anyone with the link can view this note."
               : "Only you can see this note."}
@@ -81,8 +81,8 @@ export function ShareControls({
           className={[
             "text-xs font-semibold px-2.5 py-1 rounded-full",
             sharing
-              ? "bg-[#1a2a1a] text-emerald-400"
-              : "bg-zinc-800 text-zinc-400",
+              ? "bg-sage-soft text-sage-ink"
+              : "bg-raised text-ink-soft",
           ].join(" ")}
         >
           {sharing ? "Public" : "Private"}
@@ -94,7 +94,7 @@ export function ShareControls({
           <input
             readOnly
             value={publicUrl}
-            className="flex-1 text-xs rounded-xl border border-zinc-700 bg-zinc-800 px-3 py-2 text-zinc-300 truncate"
+            className="flex-1 text-xs rounded-xl border border-line bg-raised px-3 py-2 text-ink truncate"
           />
           <Button size="sm" variant="secondary" onClick={copyLink}>
             {copied ? "Copied!" : "Copy"}

@@ -1,5 +1,35 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------------
+   Palette "Colors #53" — warm, light theme.
+   BECBCF mist · 6E7D75 sage · 826A5F taupe · CE7870 terracotta ·
+   ECBCB0 blush · EBA966 amber, on a cream paper background.
+   Exposed as Tailwind v4 theme tokens → bg-cream, text-ink, ring-amber, …
+--------------------------------------------------------------------------- */
+@theme {
+  --color-cream: #faf8f0; /* page background (paper) */
+  --color-surface: #ffffff; /* cards, inputs, dialogs */
+  --color-raised: #f1e9db; /* hover / chips / subtle fills */
+  --color-line: #e7ddcd; /* borders & hairlines */
+
+  --color-ink: #3c332e; /* primary text (dark taupe) */
+  --color-ink-soft: #6f635b; /* secondary text */
+  --color-ink-faint: #a99d92; /* tertiary text / placeholders */
+
+  --color-mist: #becbcf;
+  --color-sage: #6e7d75;
+  --color-sage-soft: #e6ece7; /* success / public badge bg */
+  --color-sage-ink: #4f5d54; /* success / public badge text */
+  --color-taupe: #826a5f;
+  --color-terracotta: #ce7870;
+  --color-terracotta-deep: #b85c54; /* danger hover / links / accents */
+  --color-terracotta-soft: #fbeae7; /* error surface bg */
+  --color-blush: #ecbcb0;
+  --color-amber: #eba966; /* primary accent */
+  --color-amber-deep: #de9a4f; /* primary accent hover */
+  --color-amber-soft: #f6ddbe; /* primary disabled / active chip */
+}
+
 /* TipTap editor prose styles */
 .prose h1 {
   font-size: 1.875rem;
@@ -7,7 +37,7 @@
   line-height: 1.2;
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
-  color: #f0f0f0;
+  color: #3c332e;
 }
 
 .prose h2 {
@@ -16,7 +46,7 @@
   line-height: 1.3;
   margin-top: 1.25rem;
   margin-bottom: 0.5rem;
-  color: #f0f0f0;
+  color: #3c332e;
 }
 
 .prose h3 {
@@ -25,19 +55,19 @@
   line-height: 1.4;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
-  color: #d4d4d4;
+  color: #6f635b;
 }
 
 .prose p {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-  color: #a1a1aa;
+  color: #6f635b;
   line-height: 1.7;
 }
 
 .prose strong {
   font-weight: 700;
-  color: #f0f0f0;
+  color: #3c332e;
 }
 
 .prose em {
@@ -47,20 +77,20 @@
 .prose code {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.875em;
-  background: #2a2a00;
-  color: #c8c800;
+  background: #f3e7d6;
+  color: #b85c54;
   padding: 0.15em 0.4em;
   border-radius: 0.25rem;
 }
 
 .prose pre {
-  background: #0a0a0a;
-  color: #f0f0f0;
+  background: #efe7d9;
+  color: #3c332e;
   padding: 1rem;
   border-radius: 0.75rem;
   overflow-x: auto;
   margin: 1rem 0;
-  border: 1px solid #2a2a2a;
+  border: 1px solid #e7ddcd;
 }
 
 .prose pre code {
@@ -78,12 +108,12 @@
 
 .prose li {
   margin: 0.25rem 0;
-  color: #a1a1aa;
+  color: #6f635b;
 }
 
 .prose hr {
   border: none;
-  border-top: 2px solid #2a2a2a;
+  border-top: 2px solid #e7ddcd;
   margin: 1.5rem 0;
 }
 
@@ -94,7 +124,7 @@
 
 /* Editor content area */
 .ProseMirror {
-  color: #d4d4d8;
+  color: #3c332e;
   padding: 1rem;
   min-height: 200px;
 }
@@ -106,19 +136,19 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0d0d0d;
+  background: #f1e9db;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3a3a3a;
+  background: #d8cab4;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9a9a00;
+  background: #eba966;
 }
 
 html {
   scrollbar-width: thin;
-  scrollbar-color: #3a3a3a #0d0d0d;
+  scrollbar-color: #d8cab4 #f1e9db;
 }

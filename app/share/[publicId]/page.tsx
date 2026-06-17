@@ -17,15 +17,15 @@ export default async function PublicNotePage({ params }: Props) {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <header className="border-b border-zinc-800 bg-[#0d0d0d]">
+      <header className="border-b border-line bg-cream">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md bg-[#9a9a00] flex items-center justify-center">
-              <span className="text-black text-xs font-bold leading-none">✦</span>
+            <div className="w-6 h-6 rounded-md bg-amber flex items-center justify-center">
+              <span className="text-ink text-xs font-bold leading-none">✦</span>
             </div>
-            <span className="text-sm font-semibold text-zinc-100">Notes</span>
+            <span className="text-sm font-semibold text-ink">Notes</span>
           </div>
-          <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-[#2a2a00] text-[#c8c800]">
+          <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-amber-soft text-terracotta-deep">
             Public note
           </span>
         </div>
@@ -33,7 +33,7 @@ export default async function PublicNotePage({ params }: Props) {
 
       {/* Content */}
       <main className="mx-auto max-w-3xl px-4 py-8 space-y-6">
-        <h1 className="text-3xl font-bold text-zinc-100">{note.title}</h1>
+        <h1 className="text-3xl font-bold text-ink">{note.title}</h1>
         <NoteEditor content={note.contentJson} readOnly className="shadow-xs" />
       </main>
     </div>

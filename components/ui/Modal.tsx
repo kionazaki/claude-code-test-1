@@ -51,15 +51,15 @@ export function Modal({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        className="absolute inset-0 bg-ink/40 backdrop-blur-sm"
         onClick={onCancel}
       />
 
       {/* Dialog */}
-      <div className="relative z-10 w-full max-w-md rounded-2xl bg-zinc-900 p-6 shadow-2xl ring-1 ring-white/10">
-        <h2 className="text-lg font-semibold text-zinc-100">{title}</h2>
+      <div className="relative z-10 w-full max-w-md rounded-2xl bg-surface p-6 shadow-2xl ring-1 ring-line">
+        <h2 className="text-lg font-semibold text-ink">{title}</h2>
         {description && (
-          <p className="mt-2 text-sm text-zinc-400">{description}</p>
+          <p className="mt-2 text-sm text-ink-soft">{description}</p>
         )}
         {children && <div className="mt-4">{children}</div>}
         <div className="mt-6 flex justify-end gap-3">

@@ -40,12 +40,12 @@ export function RegisterForm() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5" suppressHydrationWarning>
       <div className="text-center">
-        <h1 className="text-2xl font-bold text-zinc-100">Create account</h1>
-        <p className="mt-1 text-sm text-zinc-400">Start taking notes today</p>
+        <h1 className="text-2xl font-bold text-ink">Create account</h1>
+        <p className="mt-1 text-sm text-ink-soft">Start taking notes today</p>
       </div>
 
       {error && (
-        <div className="rounded-xl bg-rose-950 border border-rose-800 px-4 py-3 text-sm text-rose-400">
+        <div className="rounded-xl bg-terracotta-soft border border-terracotta/40 px-4 py-3 text-sm text-terracotta-deep">
           {error}
         </div>
       )}
@@ -88,9 +88,9 @@ export function RegisterForm() {
         Create account
       </Button>
 
-      <p className="text-center text-sm text-zinc-400">
+      <p className="text-center text-sm text-ink-soft">
         Already have an account?{" "}
-        <Link href="/login" className="text-[#c8c800] hover:underline font-medium">
+        <Link href="/login" className="text-terracotta-deep hover:underline font-medium">
           Sign in
         </Link>
       </p>

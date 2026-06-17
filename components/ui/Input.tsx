@@ -12,7 +12,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={id}
-            className="text-sm font-medium text-zinc-300"
+            className="text-sm font-medium text-ink"
           >
             {label}
           </label>
@@ -22,17 +22,17 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           id={id}
           suppressHydrationWarning
           className={[
-            "rounded-xl border px-3 py-2.5 text-sm text-zinc-100",
-            "focus:outline-none focus:ring-2 focus:ring-[#9a9a00] focus:border-transparent",
-            "placeholder:text-zinc-600",
+            "rounded-xl border px-3 py-2.5 text-sm text-ink",
+            "focus:outline-none focus:ring-2 focus:ring-amber focus:border-transparent",
+            "placeholder:text-ink-faint",
             error
-              ? "border-rose-700 bg-rose-950"
-              : "border-zinc-700 bg-zinc-900",
+              ? "border-terracotta bg-terracotta-soft"
+              : "border-line bg-surface",
             className,
           ].join(" ")}
           {...rest}
         />
-        {error && <p className="text-xs text-rose-400">{error}</p>}
+        {error && <p className="text-xs text-terracotta-deep">{error}</p>}
       </div>
     );
   }

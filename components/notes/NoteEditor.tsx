@@ -52,7 +52,7 @@ export function NoteEditor({
   return (
     <div
       className={[
-        "ring-1 ring-zinc-800 rounded-xl overflow-hidden bg-zinc-900",
+        "ring-1 ring-line rounded-xl overflow-hidden bg-surface",
         className,
       ].join(" ")}
     >
