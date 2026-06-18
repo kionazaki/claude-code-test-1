@@ -31,7 +31,7 @@ export function NotesPageClient({ notes, userName }: NotesPageClientProps) {
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-lg bg-amber flex items-center justify-center">
-              <span className="text-ink text-xs font-bold leading-none">✦</span>
+              <span className="text-ink text-2xl font-bold leading-none">ᛉ</span>
             </div>
             <span className="font-semibold text-ink">Notes</span>
           </div>
